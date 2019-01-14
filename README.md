@@ -12,7 +12,7 @@ Para carregar todos os dados para o dashboard, comente a linha onde se tem ```va
 Script em R para fazer o pré-processamento dos dados.
 
 ## scripts/part_data.py
-Script em Python para realizar o particionamento dos dados (em .csv) em N arquivos .csv.  *Executar*  ```python part_data.py path_dado.csv```
+Script em Python para realizar o particionamento dos dados (em .csv) em N arquivos .csv.  <br/> *Executar*  <br/> ```python part_data.py path_dado.csv```
 
 
 
