@@ -196,7 +196,7 @@ tryCatch({
                  '35-39', '40-44',  '45-49', '50-54', '55-59', '60-64', '65-69',  
                  '70-74', '75-79', '80-84', '85-89', '90-94',  '95-99', '100 + ');
   
-  # criando sequencia numérica de cada categoria
+  # criando sequencia numÃ©rica de cada categoria
   seq <- lapply(categories, function(x){
     c <- unlist( strsplit(x,'-') )
     if(length(c) > 1){
@@ -230,7 +230,7 @@ tryCatch({
   amostra_2$catIdade <- cat
   
   cat("\n Salvando dados...")
-  fwrite(amostra_2,"dados_2.csv")
+  fwrite(amostra_2,"dadosClean.csv")
 
   time_total <- Sys.time() - time_inic
   cat(" \n time_total = ", time_total)
