@@ -19,12 +19,12 @@ Script em Python para realizar o particionamento dos dados (em .csv) em N arquiv
 Contém funções em JS.
 <br/> 
 ### ./js/chart.js
-Contém as funções que montam os gráficos na página `index.html`
+Contém as funções que montam os gráficos na página `index.html`.
 
 
 ## ./data
-### ./data/dados.zip
-Contém todos os dados no seu formato original.
+### ./data/dados.rds
+Contém todos os dados no seu formato original. Está no formato `rds` por causa da limitação do github, é possível abrir este arquivo utilizando o `R`.
 
 ### ./data/dadosClean.zip
 Contém todos os dados já pré-processados.
