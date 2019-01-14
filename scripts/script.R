@@ -13,7 +13,8 @@ time_inic <- Sys.time()
 
 tryCatch({
   cat("\n Carregando dados")
-  dados     <- fread("dados.csv",encoding = "Latin-1")
+  #dados     <- fread("../data/dados.rds",encoding = "Latin-1")
+  dados     <- readRDS("../data/dados.rds")
   cat("\nLEN: ", dim(dados))
 
   dados$dup <- duplicated(dados[,c("id","pesid","data_inversa")])
