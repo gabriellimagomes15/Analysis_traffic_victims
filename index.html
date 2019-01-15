@@ -101,13 +101,13 @@
     <div id='initial' class="container-fluid tab-pane fade in active " role="tabpanel">
       <div class="jumbotron container">
           <div class="col-md-10">
-            <h1>Análise de Vítimas no Trânsito</h1>
+            <h1>Análise das Vítimas de Acidentes de Trânsito</h1>
           </div>
           <div class="col-md-10">
-            <p> Uma aplicação para realizar análises das vítimias em acidentes de trânsito em rodovias do Brasil.</p>
+            <p> Uma aplicação para realizar análises das vítimias em acidentes de trânsito em rodovias do Brasil, no período de 2007 e out/2018.</p>
             
             <div class="alert alert-success">
-              <p><strong> <span class='numbjobs'> Mais de 3 MILHÕES de dados </span></strong></p>              
+              <p><strong> <span class='numbjobs'> Mais de 3 milhões de dados </span></strong></p>              
             </div>
           </div>
       </div>
@@ -291,7 +291,7 @@
         </div>
         <div class="col-md 10">
           <p>
-            Uma aplicação para realizar análises das vítimias em acidentes de trânsito em rodovias do Brasil.
+            Uma aplicação para realizar análises dos perfis das vítimias em acidentes de trânsito em rodovias do Brasil.
           </p>
           <p>
             Os dados foram coletados da plataforma de <a href='https://www.prf.gov.br/portal/dados-abertos'> dados abertos da PRF</a>
@@ -386,7 +386,6 @@
       $.when.apply(null, async_request).done( function(){
           // all done
           console.log('all request completed')
-          //console.log(responses);
           plots(responses)
       });      
   })
