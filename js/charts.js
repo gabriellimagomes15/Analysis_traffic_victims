@@ -392,6 +392,7 @@ function piramide(id,data){
 
 
 function causa_acid_ano(id,data){
+  console.log("EXEMPLO: ", data)
 
         Highcharts.chart(id, {
           chart: {
@@ -445,4 +446,74 @@ function causa_acid_ano(id,data){
           },          
           series: data.filter(function(x){ return Object.keys(x)[0] != "categories"}).map(function(x){ return {name: Object.keys(x)[0], data: x[Object.keys(x)]}})
     })
+}
+
+
+function cluster_estado(id,dados){
+  console.log('CLUSTER ESTADO')
+
+    cluster_clean = d3.set( dados.cluster.map(function(d){ return d.cluster })).values().map(function(c){
+                          r_data = []
+                          r_desc = "<br> (" //[]
+                                dados.cluster.map(function(x){
+                                  if (x.cluster == c ){
+                                    r_data.push({code: x.uf.toUpperCase()})
+                                  }
+                                })                                
+                                dados.desc_cluster.map(function(d){
+                                    d[c].map(function(dd){
+                                      r_desc = r_desc + Object.keys(dd) +": " + dd[Object.keys(dd)] + " - "
+                                    })
+                                })
+                          r_desc = r_desc + ")"
+
+                          return {name: "Cluster: "+ c + r_desc, data:r_data}
+                    })
+    
+        Highcharts.mapChart(id, {
+            chart: {
+                map: 'countries/br/br-all',
+                spacingBottom: 20,
+                borderWidth: 0
+            },
+
+            title: {
+                text: ''
+            },
+            subtitle:{
+              text: ''
+            },
+            legend: {
+                enabled: true
+            },            
+            mapNavigation: {
+                  enabled: true
+            },
+            plotOptions: {
+                map: {
+                    allAreas: true,
+                    joinBy: ['postal-code', 'code'],
+                    dataLabels: {
+                      enabled: true,
+                      color: '#FFFFFF',
+                      format: '{point.code}'
+                    },
+                    tooltip: {
+                      //headerFormat: '<b> Cluster: </b> {series.name} <br>',
+                      pointFormat: ''
+                    },
+                    animation: {
+                      duration: 1000
+                    },
+                    states: {
+                        hover: {
+                            color: '#9F0606', //Highcharts.getOptions().colors[2]
+                            borderColor: 'gray'
+                        }
+                    },
+                }
+            },           
+            series: cluster_clean
+
+          });    
 }

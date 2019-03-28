@@ -37,6 +37,12 @@
 
   <script src="https://code.highcharts.com/modules/data.js"></script>
 
+  <style type="text/css">
+    #hc-tooltip {
+    width: 200px;
+    height: 200px;
+  }
+  </style>
 
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" >
@@ -57,6 +63,12 @@
           <a id='menudataviz' class="nav-link" href="#dataviz" data-toggle="tab">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a id='menudm' class="nav-link" href="#datamining" data-toggle="tab">
+            <i class="fa fa-fw fa-square-o"></i>
+            <span class="nav-link-text">Data Mining</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="About">
@@ -284,6 +296,58 @@
 
     </div> <!-- FIM DIV dataviz-->
     
+    <div id='datamining' class="container-fluid tab-pane fade  " role="tabpanel">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Data Mining </li>
+      </ol>
+      
+      <div class="row">
+        <div class="col-lg-6">        
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-map"></i> Cluster perfil dos Acidentes</div>
+            <div id='clustAcidentes' class="card-body" ></div>
+            <div class="card-footer small text-muted">Updated in <span></span></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-map"></i> Cluster perfil das Vítimas </div>
+            <div id='clustVitimas' class="card-body col-sm-12 my-auto" ></div>
+            <div class="card-footer small text-muted">Updated in <span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-picture-o"></i> Predição de Acidentes</div>
+            <div id='predAcid' class="card-body" >
+              <img src="pred_acid.png">
+            </div>
+            <div class="card-footer small text-muted">Updated in <span></span></div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-picture-o"></i> Predição de Vítimas</div>
+            <div id='predVit' class="card-body" >
+              <img src="pred_vit.png">
+            </div>
+            <div class="card-footer small text-muted">Updated in <span></span></div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div> <!-- FIM DIV data mining-->
+    
+
     <div id='about' class="container-fluid tab-pane fade " role="tabpanel">
       <div class="container jumbotron">
         <div class="col-md-12">
@@ -342,8 +406,30 @@
     </a>
 
 <script>
-    
-  
+    //============================================================================
+    $('#menudm').on('click',function(e){
+        //console.log("DATA MINING")
+
+        var path_data = ["data/dados_p5.csv"];
+        
+        d3.json("data/cluster_acidentes.json", function(data){
+            // Code from your callback goes here...
+          console.log(data)
+          //data.cluster_acidentes.map(function(x){ console.log(x) })
+          cluster_estado('clustAcidentes',data)
+
+        });
+
+        d3.json("data/cluster_vitimas.json", function(data){
+            // Code from your callback goes here...
+          console.log(data)
+          //data.cluster_acidentes.map(function(x){ console.log(x) })
+          cluster_estado('clustVitimas',data)
+
+        });
+
+      })
+   
   // FUNÇÃO PARA MONSTAR OS GRÁFICOS AO SELECIONAR O MENU 'DASHBOARDS'
   $('#menudataviz').on('click',function(e){
       
@@ -658,8 +744,7 @@ DE ACORDO COM A NECESSIDADE DO USUÁRIO
 
 
 }  // FIM FUNÇÃO PLOTS 
-
-
+  
 </script>
 	</body>
 </html>
