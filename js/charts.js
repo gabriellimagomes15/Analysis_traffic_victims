@@ -467,7 +467,7 @@ function cluster_estado(id,dados){
                                 })
                           r_desc = r_desc + ")"
 
-                          return {name: "Cluster: "+ c + r_desc, data:r_data}
+                          return {name: "Cluster: "+ c , data:r_data}
                     })
     
         Highcharts.mapChart(id, {
@@ -491,7 +491,7 @@ function cluster_estado(id,dados){
             },
             plotOptions: {
                 map: {
-                    allAreas: true,
+                    allAreas: false,
                     joinBy: ['postal-code', 'code'],
                     dataLabels: {
                       enabled: true,

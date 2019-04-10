@@ -28,14 +28,19 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-  <script type="text/javascript" src='js/highcharts.js'></script>
-
+  <!--script src="https://code.highcharts.com/maps/highmaps.js"></script!-->
+  
+  <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+
   <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
-  <script src="https://code.highcharts.com/mapdata/countries/br/br-all.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/data.js"></script>
 
-  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/mapdata/countries/br/br-all.js"></script>
+  
+  
+
 
   <style type="text/css">
     #hc-tooltip {
@@ -409,8 +414,6 @@
     //============================================================================
     $('#menudm').on('click',function(e){
         //console.log("DATA MINING")
-
-        var path_data = ["data/dados_p5.csv"];
         
         d3.json("data/cluster_acidentes.json", function(data){
             // Code from your callback goes here...
